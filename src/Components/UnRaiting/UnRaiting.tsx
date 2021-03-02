@@ -1,16 +1,18 @@
 import React, {useState} from "react";
+import {RaitingValueType} from "../Raiting/Raiting";
 
 type RaitingPropsType = {
-    // value: 0 | 1 | 2 | 3 | 4 | 5
+    defaultValue?: RaitingValueType
+    onChange: (value: RaitingValueType) => void
 }
 
 export function UnRaiting(props: RaitingPropsType) {
 
-    let [value, setValue] = useState(0);
+    let [value, setValue] = useState<RaitingValueType>(props.defaultValue ? props.defaultValue : 0);
 
     return (
         <div>
-            <Star selected={value > 0} setValue={setValue} value={1}/>
+            <Star selected={value > 0} setValue={setValue} value={1} />
             <Star selected={value > 1} setValue={setValue} value={2}/>
             <Star selected={value > 2} setValue={setValue} value={3}/>
             <Star selected={value > 3} setValue={setValue} value={4}/>

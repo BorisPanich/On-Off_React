@@ -2,11 +2,12 @@ import React, {useState} from 'react';
 
 type PropsType = {
     onClick: (on: boolean) => void
+    defaultOn?: boolean
 }
 
 export function UnOnOff(props: PropsType) {
 
-    let [on, setOn] = useState(false);
+    let [on, setOn] = useState(props.defaultOn ? props.defaultOn : false);
 
     const onStyle = {
         width: "30px",
